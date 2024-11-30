@@ -21,10 +21,18 @@ function App() {
     'Walk dog'
   ]);
 
+  const addTask = (task) => {
+    if (!tasks.includes(task)) {
+      setTasks([...tasks, task])
+    } else {
+      console.log("Task already exists in the list");
+    }
+  }
+
   return (
     <SafeAreaView>
        <ToDoList tasks={tasks}/>
-       <ToDoForm />
+       <ToDoForm addTask={addTask}/>
     </SafeAreaView>
   );
 }
